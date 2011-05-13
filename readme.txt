@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: genesis, genesiswp, studiopress, menu
 Requires at least: 3.0
 Tested up to: 3.1.2
-Stable tag: 0.2
+Stable tag: 0.3
 
 Genesis Menu options with custom menu, categories, pages, and primary/secondary nav extras.
 
@@ -42,11 +42,11 @@ Alternately you can try the normal method for moving the menu, the plugin checks
 
 == Change Log ==
 
-0.1 (5-12-2011 : Current)
+0.3 (5-12-2011 : Current)
 
 * Added ability for plugin to replace menus automatically on over a dozen common Genesis Hooks including priority
 
-0.1 (5-12-2011)
+0.2 (5-12-2011)
 
 * First Public Release
 
