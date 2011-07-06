@@ -3,7 +3,7 @@
 /*
   Plugin Name: Genesis Nav Menu Amplified
   Plugin URI: http://DesignsByNicktheGeek.com
-  Version: 0.3
+  Version: 0.4
   Author: Nick_theGeek
   Author URI: http://DesignsByNicktheGeek.com
   Description: Restores the traditional Genesis Menu with options for the Secondary Menu to have navigation extras
@@ -35,7 +35,7 @@ register_activation_hook( __FILE__, 'gnma_activation_check' );
  */
 function gnma_activation_check() {
 
-    $latest = '1.4';
+    $latest = '1.7';
 
     $theme_info = get_theme_data( TEMPLATEPATH . '/style.css' );
 
@@ -77,10 +77,10 @@ function gnma_truncate( $str, $length=10 ) {
 add_action( 'genesis_init', 'gnma_init', 15 );
 /** Loads required files when needed */
 function gnma_init() {
-    
+
     if ( is_admin ( ) )
         require_once(GNMA_PLUGIN_DIR . '/admin.php');
-    
+
     else
         require_once(GNMA_PLUGIN_DIR . '/structure.php');
 

@@ -54,9 +54,13 @@ function gnma_theme_settings_boxes() {
 
     remove_meta_box( 'genesis-theme-settings-nav', $_genesis_theme_settings_pagehook, 'column1' );
     remove_meta_box( 'genesis-theme-settings-subnav', $_genesis_theme_settings_pagehook, 'column1' );
+    remove_meta_box('genesis-theme-settings-nav', $_genesis_theme_settings_pagehook, 'main');
 
     add_meta_box( 'gnma-theme-settings-nav', __( 'Primary Navigation', 'genesis' ), 'gnma_theme_settings_nav_box', $_genesis_theme_settings_pagehook, 'column1' );
     add_meta_box( 'gnma-theme-settings-subnav', __( 'Secondary Navigation', 'genesis' ), 'gnma_theme_settings_subnav_box', $_genesis_theme_settings_pagehook, 'column1' );
+
+    add_meta_box('gnma-theme-settings-nav', __('Primary Navigation', 'genesis'), 'gnma_theme_settings_nav_box', $_genesis_theme_settings_pagehook, 'main');
+    add_meta_box('gnma-theme-settings-subnav', __('Secondary navigation', 'genesis'), 'gnma_theme_settings_subnav_box', $_genesis_theme_settings_pagehook, 'main');
 }
 
 function gnma_theme_settings_nav_box() {
