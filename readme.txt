@@ -44,7 +44,7 @@ Alternately you can try the normal method for moving the menu, the plugin checks
 
 0.3 (7-6-2011 : Current)
 
-* Added support for Genesis 1.7 theme options.
+* Added support for Genesis 1.7 theme options
 
 0.3 (5-12-2011)
 
