@@ -44,23 +44,18 @@ add_action( 'admin_menu', 'gnma_theme_settings_init', 15 );
  * on the theme settings page only, and not the rest of the admin
  */
 function gnma_theme_settings_init() {
-    global $_genesis_theme_settings_pagehook;
-
-    add_action( 'load-' . $_genesis_theme_settings_pagehook, 'gnma_theme_settings_boxes' );
+    global $_genesis_admin_settings;
+    
+    add_action( 'load-' . $_genesis_admin_settings->pagehook, 'gnma_theme_settings_boxes', 20 );
 }
 
 function gnma_theme_settings_boxes() {
-    global $_genesis_theme_settings_pagehook;
+    global $_genesis_admin_settings;
 
-    remove_meta_box( 'genesis-theme-settings-nav', $_genesis_theme_settings_pagehook, 'column1' );
-    remove_meta_box( 'genesis-theme-settings-subnav', $_genesis_theme_settings_pagehook, 'column1' );
-    remove_meta_box('genesis-theme-settings-nav', $_genesis_theme_settings_pagehook, 'main');
+    remove_meta_box('genesis-theme-settings-nav', $_genesis_admin_settings->pagehook, 'main');
 
-    add_meta_box( 'gnma-theme-settings-nav', __( 'Primary Navigation', 'genesis' ), 'gnma_theme_settings_nav_box', $_genesis_theme_settings_pagehook, 'column1' );
-    add_meta_box( 'gnma-theme-settings-subnav', __( 'Secondary Navigation', 'genesis' ), 'gnma_theme_settings_subnav_box', $_genesis_theme_settings_pagehook, 'column1' );
-
-    add_meta_box('gnma-theme-settings-nav', __('Primary Navigation', 'genesis'), 'gnma_theme_settings_nav_box', $_genesis_theme_settings_pagehook, 'main');
-    add_meta_box('gnma-theme-settings-subnav', __('Secondary navigation', 'genesis'), 'gnma_theme_settings_subnav_box', $_genesis_theme_settings_pagehook, 'main');
+    add_meta_box('gnma-theme-settings-nav', __('Primary Navigation', 'genesis'), 'gnma_theme_settings_nav_box', $_genesis_admin_settings->pagehook, 'main', 'high' );
+    add_meta_box('gnma-theme-settings-subnav', __('Secondary navigation', 'genesis'), 'gnma_theme_settings_subnav_box', $_genesis_admin_settings->pagehook, 'main', 'high' );
 }
 
 function gnma_theme_settings_nav_box() {

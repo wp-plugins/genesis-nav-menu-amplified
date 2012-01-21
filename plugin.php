@@ -3,7 +3,7 @@
 /*
   Plugin Name: Genesis Nav Menu Amplified
   Plugin URI: http://DesignsByNicktheGeek.com
-  Version: 0.4
+  Version: 1.0
   Author: Nick_theGeek
   Author URI: http://DesignsByNicktheGeek.com
   Description: Restores the traditional Genesis Menu with options for the Secondary Menu to have navigation extras
@@ -14,13 +14,15 @@
  *      Create and setup screen shots
  */
 
+/** Load textdomain for translation */
+load_plugin_textdomain( 'gnma', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 
 define( 'GNMA_PLUGIN_DIR', dirname( __FILE__ ) );
-define( 'GNMA_TEXTDOMAIN', 'GNMA' );
+
 
 /* Prevent direct access to the plugin */
 if ( !defined( 'ABSPATH' ) ) {
-    wp_die( __( "Sorry, you are not allowed to access this page directly.", GNMA_TEXTDOMAIN ) );
+    wp_die( __( "Sorry, you are not allowed to access this page directly.", 'gnma' ) );
 }
 
 register_activation_hook( __FILE__, 'gnma_activation_check' );
@@ -35,20 +37,20 @@ register_activation_hook( __FILE__, 'gnma_activation_check' );
  */
 function gnma_activation_check() {
 
-    $latest = '1.7';
+    $latest = '1.8';
 
     $theme_info = get_theme_data( TEMPLATEPATH . '/style.css' );
 
     if ( basename( TEMPLATEPATH ) != 'genesis' ) {
         deactivate_plugins( plugin_basename( __FILE__ ) ); // Deactivate ourself
-        wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed %1$sGenesis%2$s', GNMA_TEXTDOMAIN ), '<a href="http://designsbynickthegeek.com/go/genesis">', '</a>' ) );
+        wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed %1$sGenesis%2$s', 'gnma' ), '<a href="http://designsbynickthegeek.com/go/genesis">', '</a>' ) );
     }
 
     $version = gnma_truncate( $theme_info['Version'], 3 );
 
     if ( version_compare( $version, $latest, '<' ) ) {
         deactivate_plugins( plugin_basename( __FILE__ ) ); // Deactivate ourself
-        wp_die( sprintf( __( 'Sorry, you can\'t activate without %1$sGenesis %2$s%3$s or greater', GNMA_TEXTDOMAIN ), '<a href="http://designsbynickthegeek.com/go/genesis">', $latest, '</a>' ) );
+        wp_die( sprintf( __( 'Sorry, you can\'t activate without %1$sGenesis %2$s%3$s or greater', 'gnma' ), '<a href="http://designsbynickthegeek.com/go/genesis">', $latest, '</a>' ) );
     }
 }
 
@@ -79,9 +81,9 @@ add_action( 'genesis_init', 'gnma_init', 15 );
 function gnma_init() {
 
     if ( is_admin ( ) )
-        require_once(GNMA_PLUGIN_DIR . '/admin.php');
+        require_once( GNMA_PLUGIN_DIR . '/admin.php');
 
     else
-        require_once(GNMA_PLUGIN_DIR . '/structure.php');
+        require_once( GNMA_PLUGIN_DIR . '/structure.php');
 
 }
