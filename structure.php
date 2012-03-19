@@ -45,14 +45,14 @@ function gnma_do_nav() {
             $nav = wp_nav_menu( array(
                         'theme_location' => 'primary',
                         'container' => '',
-                        'menu_class' => genesis_get_option( 'nav_superfish' ) ? 'nav superfish' : 'nav',
+                        'menu_class' => genesis_get_option( 'nav_superfish' ) ? 'menu-secondary menu nav superfish' : 'secondary-menu menu nav',
                         'echo' => 0
                             ) );
         } else {
 
             $nav = genesis_nav( array(
                         'theme_location' => 'primary',
-                        'menu_class' => genesis_get_option( 'nav_superfish' ) ? 'nav superfish' : 'nav',
+                        'menu_class' => genesis_get_option( 'nav_superfish' ) ? 'menu-primary menu nav superfish' : 'primary-menu menu nav',
                         'show_home' => genesis_get_option( 'nav_home' ),
                         'type' => genesis_get_option( 'nav_type' ),
                         'sort_column' => genesis_get_option( 'nav_pages_sort' ),
@@ -85,14 +85,14 @@ function gnma_do_subnav() {
             $subnav = wp_nav_menu( array(
                         'theme_location' => 'secondary',
                         'container' => '',
-                        'menu_class' => genesis_get_option( 'subnav_superfish' ) ? 'nav superfish' : 'nav',
+                        'menu_class' => genesis_get_option( 'subnav_superfish' ) ? 'menu-secondary menu nav superfish' : 'secondary-menu menu nav',
                         'echo' => 0
                             ) );
         } else {
 
             $subnav = genesis_nav( array(
                         'theme_location' => 'secondary',
-                        'menu_class' => genesis_get_option( 'subnav_superfish' ) ? 'nav superfish' : 'nav',
+                        'menu_class' => genesis_get_option( 'subnav_superfish' ) ? 'menu-secondary menu nav superfish' : 'secondary-menu menu nav',
                         'show_home' => genesis_get_option( 'subnav_home' ),
                         'type' => genesis_get_option( 'subnav_type' ),
                         'sort_column' => genesis_get_option( 'subnav_pages_sort' ),
